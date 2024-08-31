@@ -51,6 +51,12 @@ android {
 
 dependencies {
 
+    implementation(libs.squareup.retrofit)
+    implementation(libs.squareup.adapter.rxjava2)
+    implementation(libs.squareup.converter.gson)
+    implementation(libs.squareup.okhttp)
+    implementation(libs.squareup.mockwebserver)
+    implementation(libs.squareup.kotlinx.serialization.json)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
