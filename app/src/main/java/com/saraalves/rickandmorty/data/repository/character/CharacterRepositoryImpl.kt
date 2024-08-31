@@ -1,4 +1,4 @@
-package com.saraalves.rickandmorty.data.repository
+package com.saraalves.rickandmorty.data.repository.character
 
 import com.saraalves.rickandmorty.data.remote.datasource.character.CharacterRemoteDataSource
 import com.saraalves.rickandmorty.domain.model.response.character.AllCharacters

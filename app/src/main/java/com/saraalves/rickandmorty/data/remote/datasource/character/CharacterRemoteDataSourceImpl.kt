@@ -8,12 +8,12 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class CharacterRemoteDataSourceImpl(
-    private val characterApi: GetAllCharactersService,
+    private val characterService: GetAllCharactersService,
     private val allCharacterMapper: AllCharacterResponseToModelMapper,
 ) : CharacterRemoteDataSource {
     override fun getAllCharacters(page: Int): Flow<AllCharacters> {
         return flow {
-            emit(allCharacterMapper.map(characterApi.getAllCharacters(page)))
+            emit(allCharacterMapper.map(characterService.getAllCharacters(page)))
         }.parseHttpError()
     }
 }
