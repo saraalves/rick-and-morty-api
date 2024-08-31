@@ -24,7 +24,7 @@ class AllCharactersViewHolder(
         binding.let {
             it.root.setOnClickListener { onItemClick(characters) }
             it.characterName.text = characters.name ?: "ops sem nome"
-            it.text.text = characters.status ?: "ops sem status"
+            it.textStatus.text = "status: ${characters.status?.lowercase()}" ?: "ops sem status"
             it.progressBar.isVisible = false
             Picasso.get()
                 .load(characters.image)
