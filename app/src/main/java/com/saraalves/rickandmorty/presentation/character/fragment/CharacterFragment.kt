@@ -4,11 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.saraalves.rickandmorty.domain.model.response.character.AllCharacters
 import com.saraalves.rickandmorty.presentation.character.adapter.AllCharactersAdapter
 import com.saraalves.rickandmorty.R
 import com.saraalves.rickandmorty.databinding.FragmentCharacterBinding
@@ -42,7 +40,18 @@ class CharacterFragment : Fragment(R.layout.fragment_character) {
 
         adapter = AllCharactersAdapter { character ->
             character.let {
-                Toast.makeText(context, "Clicou uhuul", Toast.LENGTH_SHORT).show()
+                activity?.supportFragmentManager?.beginTransaction()?.replace(
+                    R.id.rickAndMortyActivity,
+                    CharacterDetailsFragment.newInstance(
+                        CharacterDetailArgs(
+                            character.name.orEmpty(),
+                            character.status.orEmpty(),
+                            character.image.orEmpty()
+                        )
+                    )
+                )
+                    ?.addToBackStack(CharacterDetailsFragment::class.java.name)
+                    ?.commit()
             }
         }
 
@@ -60,7 +69,7 @@ class CharacterFragment : Fragment(R.layout.fragment_character) {
 
     private fun observeViewModel() {
         viewModel.loading.observe(viewLifecycleOwner) { isLoading ->
-                binding.characterListProgressBar.isVisible = isLoading
+            binding.characterListProgressBar.isVisible = isLoading
         }
 
         viewModel.allCharacters.observe(viewLifecycleOwner) { allCharacters ->

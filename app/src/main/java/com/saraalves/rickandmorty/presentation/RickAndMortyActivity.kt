@@ -3,6 +3,8 @@ package com.saraalves.rickandmorty.presentation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.saraalves.rickandmorty.R
 import com.saraalves.rickandmorty.databinding.ActivityRickAndMortyBinding
 import com.saraalves.rickandmorty.presentation.character.fragment.CharacterFragment
@@ -19,7 +21,7 @@ class RickAndMortyActivity : AppCompatActivity(R.layout.activity_rick_and_morty)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
+        setContentView(binding.rickAndMortyActivity)
 
         characterFragment = CharacterFragment()
         locationFragment = LocationFragment()
@@ -37,9 +39,10 @@ class RickAndMortyActivity : AppCompatActivity(R.layout.activity_rick_and_morty)
         }
     }
 
-    private fun setCurrentFragment(fragment: Fragment) =
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.flFragment, fragment)
-            commit()
-        }
+    private fun setCurrentFragment(fragment: Fragment) {
+        val fm: FragmentManager = supportFragmentManager
+        val ft: FragmentTransaction = fm.beginTransaction()
+        ft.add(R.id.flFragment, fragment)
+        ft.commit()
+    }
 }
