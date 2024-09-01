@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.saraalves.rickandmorty.R
@@ -40,8 +41,9 @@ class LocationFragment : Fragment(R.layout.fragment_location) {
     private fun setupRecyclerView() {
 
         adapter = AllLocationAdapter { location ->
-            location.let {}
-
+            location.let {
+                Toast.makeText(context, "Clicou uhuul", Toast.LENGTH_SHORT).show()
+            }
         }
 
         adapter.apply {

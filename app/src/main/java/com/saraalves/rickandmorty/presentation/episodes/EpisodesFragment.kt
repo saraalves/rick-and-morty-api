@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.saraalves.rickandmorty.R
@@ -39,7 +40,9 @@ class EpisodesFragment : Fragment(R.layout.fragment_episodes) {
     private fun setupRecyclerView() {
 
         adapter = AllEpisodesAdapter { episodes ->
-            episodes.let {}
+            episodes.let {
+                Toast.makeText(context, "Clicou uhuul", Toast.LENGTH_SHORT).show()
+            }
 
         }
 
