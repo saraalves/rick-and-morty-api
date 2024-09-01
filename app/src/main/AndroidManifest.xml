@@ -22,7 +22,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".RickAndMortyActivity"
+            android:name=".presentation.RickAndMortyActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat" >
             <intent-filter>

@@ -2,7 +2,7 @@ package com.saraalves.rickandmorty.presentation.episodes.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.saraalves.rickandmorty.DefaultDiffCallback
+import com.saraalves.rickandmorty.presentation.DefaultDiffCallback
 import com.saraalves.rickandmorty.domain.model.response.episodes.SingleEpisode
 
 class AllEpisodesAdapter(

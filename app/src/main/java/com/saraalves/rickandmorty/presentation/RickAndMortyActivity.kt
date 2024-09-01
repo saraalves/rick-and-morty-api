@@ -1,13 +1,13 @@
-package com.saraalves.rickandmorty
+package com.saraalves.rickandmorty.presentation
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
+import com.saraalves.rickandmorty.R
 import com.saraalves.rickandmorty.databinding.ActivityRickAndMortyBinding
 import com.saraalves.rickandmorty.presentation.character.ViewPagerAdapter
 import com.saraalves.rickandmorty.presentation.character.fragment.CharacterFragment
 import com.saraalves.rickandmorty.presentation.episodes.EpisodesFragment
+import com.saraalves.rickandmorty.presentation.location.LocationFragment
 
 class RickAndMortyActivity : AppCompatActivity(R.layout.activity_rick_and_morty) {
 
@@ -17,6 +17,7 @@ class RickAndMortyActivity : AppCompatActivity(R.layout.activity_rick_and_morty)
 
     private lateinit var characterFragment: CharacterFragment
     private lateinit var episodeFragment: EpisodesFragment
+    private lateinit var locationFragment: LocationFragment
 
 
     private val _tabTitle = listOf(
@@ -39,10 +40,12 @@ class RickAndMortyActivity : AppCompatActivity(R.layout.activity_rick_and_morty)
 
         characterFragment = CharacterFragment()
         episodeFragment = EpisodesFragment()
+        locationFragment = LocationFragment()
 
         val listaFragmentos = listOf(
             characterFragment,
-            episodeFragment
+            episodeFragment,
+            locationFragment
         )
 
         binding.viewPager.adapter = ViewPagerAdapter(listaFragmentos, supportFragmentManager)

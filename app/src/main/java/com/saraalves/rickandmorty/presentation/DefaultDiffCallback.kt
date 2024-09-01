@@ -1,4 +1,4 @@
-package com.saraalves.rickandmorty
+package com.saraalves.rickandmorty.presentation
 
 import androidx.recyclerview.widget.DiffUtil
 
