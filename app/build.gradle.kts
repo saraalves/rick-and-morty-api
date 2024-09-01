@@ -86,4 +86,9 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    androidTestImplementation(libs.google.truth)
+    androidTestImplementation(libs.mockito.kotlin)
+    androidTestImplementation(libs.mockito)
+    androidTestImplementation(libs.mockito.core)
+
 }
