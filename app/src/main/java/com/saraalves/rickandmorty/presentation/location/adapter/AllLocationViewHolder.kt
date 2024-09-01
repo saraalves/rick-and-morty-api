@@ -6,24 +6,22 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.saraalves.rickandmorty.R
-import com.saraalves.rickandmorty.databinding.ListItemCharacterBinding
-import com.saraalves.rickandmorty.domain.model.response.character.SingleCharacter
+import com.saraalves.rickandmorty.databinding.ListItemLocationBinding
 import com.saraalves.rickandmorty.domain.model.response.location.SingleLocation
-import com.saraalves.rickandmorty.presentation.character.adapter.AllCharactersViewHolder
-import com.squareup.picasso.Callback
-import com.squareup.picasso.Picasso
-import java.lang.Exception
 
 class AllLocationViewHolder(itemView: View, private val onItemClick: (SingleLocation) -> Unit) :
     RecyclerView.ViewHolder(itemView) {
 
-    private val binding = ListItemCharacterBinding.bind(itemView)
+    private val binding = ListItemLocationBinding.bind(itemView)
 
     fun bind(location: SingleLocation) {
         binding.let {
             it.root.setOnClickListener { onItemClick(location) }
-            it.characterName.text = location.locationName ?: "ops sem nome"
-            it.textStatus.text = location.type ?: "ops sem type"
+            it.nameLocation.text = location.locationName
+            it.nameLocation.visibility =
+                if (location.locationName.isNullOrEmpty()) View.GONE else View.VISIBLE
+            it.typeLocation.text = location.type ?: "ops sem nome"
+            it.dimension.text = location.dimension ?: "ops sem type"
             it.progressBar.isVisible = false
         }
     }
@@ -31,7 +29,7 @@ class AllLocationViewHolder(itemView: View, private val onItemClick: (SingleLoca
     companion object {
         fun build(parent: ViewGroup, onItemClick: (SingleLocation) -> Unit): AllLocationViewHolder {
             val layoutInflater = LayoutInflater.from(parent.context)
-            val view = layoutInflater.inflate(R.layout.list_item_character, parent, false)
+            val view = layoutInflater.inflate(R.layout.list_item_location, parent, false)
             return AllLocationViewHolder(view, onItemClick)
         }
     }

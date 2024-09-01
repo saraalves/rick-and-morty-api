@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="@dimen/dim_8_dp"
+    android:layout_marginHorizontal="@dimen/dim_8_dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="@dimen/dim_10_dp"
+    android:theme="@style/Theme.MaterialComponents.DayNight"
+    android:backgroundTint="@color/colorPrimaryDark">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ctlCardLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/nameLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dim_16_dp"
+            android:layout_marginTop="@dimen/dim_8_dp"
+            android:textSize="@dimen/dim_20_sp"
+            android:ellipsize="end"
+            android:textColor="#ffffffff"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Pilot" />
+
+        <TextView
+            android:id="@+id/typeLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dim_16_dp"
+            android:layout_marginTop="@dimen/dim_8_dp"
+            android:textSize="@dimen/dim_20_sp"
+            android:ellipsize="end"
+            android:textColor="#ffffffff"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameLocation"
+            tools:text="December 2, 2013" />
+
+        <TextView
+            android:id="@+id/dimension"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dim_16_dp"
+            android:layout_marginBottom="@dimen/dim_8_dp"
+            android:layout_marginTop="@dimen/dim_8_dp"
+            android:textSize="@dimen/dim_16_sp"
+            android:textColor="#caced4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/typeLocation"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="S01E01" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/dim_8_dp"
+            android:layout_marginVertical="@dimen/dim_8_dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/nameLocation"
+            app:layout_constraintEnd_toEndOf="@+id/nameLocation"
+            app:layout_constraintStart_toStartOf="@+id/nameLocation"
+            app:layout_constraintTop_toTopOf="@+id/nameLocation" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
