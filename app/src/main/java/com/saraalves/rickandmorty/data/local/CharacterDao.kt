@@ -10,5 +10,5 @@ import com.saraalves.rickandmorty.domain.model.response.character.AllCharacters
 interface CharacterDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun saveCharacters(characters: AllCharacters)
-    
+
 }
