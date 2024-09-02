@@ -3,6 +3,7 @@ package com.saraalves.rickandmorty
 import android.app.Application
 import com.saraalves.rickandmorty.di.characterUseCaseModule
 import com.saraalves.rickandmorty.di.chracterViewModel
+import com.saraalves.rickandmorty.di.dataBaseModule
 import com.saraalves.rickandmorty.di.dataSourceModule
 import com.saraalves.rickandmorty.di.mapperModule
 import com.saraalves.rickandmorty.di.networkModule
@@ -20,7 +21,8 @@ class RickAndMortyApplication : Application() {
             characterUseCaseModule,
             mapperModule,
             dataSourceModule,
-            repositoryModule
+            repositoryModule,
+            dataBaseModule
         )
 
         startKoin{

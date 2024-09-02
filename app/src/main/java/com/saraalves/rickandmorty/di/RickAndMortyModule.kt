@@ -1,9 +1,13 @@
 package com.saraalves.rickandmorty.di
 
+import androidx.room.Room
 import com.saraalves.rickandmorty.data.mapper.character.AllCharacterResponseToModelMapper
 import com.saraalves.rickandmorty.data.remote.datasource.character.CharacterRemoteDataSource
 import com.saraalves.rickandmorty.data.remote.datasource.character.CharacterRemoteDataSourceImpl
 import com.google.gson.GsonBuilder
+import com.saraalves.rickandmorty.data.local.AppDatabase
+import com.saraalves.rickandmorty.data.local.CharacterLocalDataSource
+import com.saraalves.rickandmorty.data.local.CharacterLocalDataSourceImpl
 import com.saraalves.rickandmorty.data.mapper.episodes.AllEpisodeResponseToModelMapper
 import com.saraalves.rickandmorty.data.mapper.location.AllLocationMapperResponseToModelMapper
 import com.saraalves.rickandmorty.data.remote.api.GetAllCharactersService
@@ -33,6 +37,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 // alterar os nomes pra ficar generico
 //remover os get() e colocar os nomes das dependencias
+
+val dataBaseModule = module {
+    single { Room.databaseBuilder(get(), AppDatabase::class.java, "database").build() }
+    single { get<AppDatabase>().characterDao() }
+}
 
 val chracterViewModel = module {
     viewModel { CharacterViewModel(get()) }
@@ -71,6 +80,7 @@ val dataSourceModule = module {
             allLocationMapper = get(),
         )
     }
+    single<CharacterLocalDataSource> { CharacterLocalDataSourceImpl(get(), get()) }
 }
 
 val repositoryModule = module {
